@@ -20,7 +20,7 @@ const VRegister = () => {
         e.preventDefault()
         try {
             await axios.post("http://localhost:8800/api/auth/vregister", inputs)
-            navigate("/");
+            navigate("/");//hello
         } catch (error) {
             console.log(error)
         }
@@ -51,7 +51,7 @@ const VRegister = () => {
 
 
                 <Button onClick={handleSubmit} variant="outline-dark" type="submit">
-                    Sign up
+                    Sign up Form
                 </Button>{'  '}
                 <span>Already have a Account? <Link to="/">Login</Link></span>
             </Form></div>
