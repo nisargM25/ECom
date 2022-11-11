@@ -51,7 +51,7 @@ const VRegister = () => {
 
 
                 <Button onClick={handleSubmit} variant="outline-dark" type="submit">
-                    Sign up Form
+                    Sign up
                 </Button>{'  '}
                 <span>Already have a Account? <Link to="/">Login</Link></span>
             </Form></div>
