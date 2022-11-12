@@ -1,18 +1,8 @@
 .App{
     height: 100vh;
 }
-main{
-    /* padding: 0 200px; */
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-}
+
 .products{
-    /* display: block;
-    width: 90%;
-    justify-content: space-around;
-    box-sizing: border-box;
-    border: 1px solid black; */
     display: flex;
     flex-direction: column;
 }
@@ -33,9 +23,15 @@ footer{
     background-color: rgba(0, 0, 0, 0.85);
     color: white;
     padding: 20px;
+    
 }
 .auth{
-    width: 400px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 .auth span{
    font-size: 14px;
