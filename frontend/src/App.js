@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Products from "./pages/Products";
 import Add from "./pages/Add";
 import Update from "./pages/Update";
 import "./style.css";
@@ -18,8 +17,8 @@ function App() {
           <div>
             <Routes>
               <Route path="/Home" element={currentUser?<Home />:<VLogin />} />
-              <Route path="/VRegister" element={!currentUser?<VRegister />:<Products/>} />
-              <Route path="/" element={!currentUser?<VLogin />:<Products/>} />
+              <Route path="/VRegister" element={!currentUser?<VRegister />:<Home/>} />
+              <Route path="/" element={!currentUser?<VLogin />:<Home/>} />
               <Route path="/add" element={currentUser?<Add />:<VLogin />} />
               <Route path="/update/:id" element={currentUser?<Update />:<VLogin />} />
             </Routes>
