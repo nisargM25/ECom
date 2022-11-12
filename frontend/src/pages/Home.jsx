@@ -35,7 +35,6 @@ const Home = () => {
             <div className="text-center">All rights reserved</div>
           </footer>
         </div>
-      
     </div>
   )
 }

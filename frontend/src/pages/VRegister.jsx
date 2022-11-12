@@ -29,11 +29,11 @@ const VRegister = () => {
         <div className='auth'>
             <Form>
                 <Form.Group className="mb-3" >
-                    <Form.Control required onChange={handleChange} name="v_name" type="text" placeholder="Enter Name" />
+                    <Form.Control required  onChange={handleChange} name="v_name" type="text" placeholder="Enter Name" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" >
-                    <Form.Control required onChange={handleChange} name="v_email" type="email" placeholder="Enter Email" />
+                    <Form.Control required  onChange={handleChange} name="v_email" type="email" placeholder="Enter Email" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" >
