@@ -63,6 +63,44 @@ app.put("/updateProduct/:id",(req, res) => {
     })
 })
 
+
+//Aniket
+app.get("/api/products", (req, res) => {
+  db.query("SELECT*FROM product", (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+//for getting item by product id
+app.get("/api/products/:p_id", (req, res) => {
+  const pid = req.params.p_id;
+  const query = `SELECT*FROM product WHERE p_id =${pid}`;
+  db.query(query, (err, rows, fields) => {
+    if (!err) {
+      console.log(rows);
+      res.send(rows);
+    } else {
+      console.log(err);
+    }
+  });
+});
+
+//post api
+app.post("/api/products/", (req, res) => {
+  console.log("post api is working");
+  const data = req.body;
+  const query = "Insert into cart(`cart_id`,`c_id`,`p_id`) VAlUES (?) ";
+  db.query(query, data, (err, rows, fields) => {
+    if (!err) {
+      res.send(rows);
+    } else {
+      console.log(err);
+    }
+  });
+});
+
+
 app.listen(8800, () => {
     console.log("Connected to Backend")
 })

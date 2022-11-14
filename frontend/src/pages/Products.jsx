@@ -49,7 +49,7 @@ const Products = () => {
                                         <Card.Title>{product.p_name}</Card.Title>
                                         <div className="gap-1">
                                             <Button variant="outline-dark" className="delete btnP" onClick={() => handleDelete(product.p_id)}>Delete</Button>
-                                            <Button variant="outline-dark" className="Update btnP"><Link to={`/update/${product.p_id}`}>Update</Link></Button> 
+                                            <Button variant="outline-dark" className="Update btnP"><Link to={`/vendor/update/${product.p_id}`}>Update</Link></Button> 
                                         </div>
                                     </Card.Body>
                                 </Card>

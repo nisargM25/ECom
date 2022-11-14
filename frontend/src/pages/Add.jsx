@@ -42,7 +42,7 @@ const Add = () => {
 
         try {
             await axios.post('http://localhost:8800/api/product', { p_name, p_desc, p_price, cat_id, imgUrl, v_id })
-            navigate("/Home");
+            navigate("/vendor/Home");
         } catch (error) {
             console.log(error)
         }
@@ -56,7 +56,7 @@ const Add = () => {
                 <Navbar bg="dark" variant="dark" >
 
                     <Container>
-                        <LinkContainer to="/Home">
+                        <LinkContainer to="/vendor/Home">
                             <Navbar.Brand>E-mart</Navbar.Brand>
                         </LinkContainer>
 

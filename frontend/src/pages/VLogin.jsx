@@ -19,7 +19,7 @@ const VLogin = () => {
         e.preventDefault()
         try {
             await vlogin(inputs)
-            navigate("/Home");
+            navigate("/vendor/Home");
         } catch (error) {
             console.log(error)
         }

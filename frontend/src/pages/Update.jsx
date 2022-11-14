@@ -32,7 +32,7 @@ const Update = () => {
         try {
             await axios.put("http://localhost:8800/updateProduct/" + pid, product)
 
-            navigate("/Home")
+            navigate("/vendor/Home")
         } catch (err) {
             console.log(err)
         }
@@ -45,7 +45,7 @@ const Update = () => {
                 <Navbar bg="dark" variant="dark" >
 
                     <Container>
-                        <LinkContainer to="/Home">
+                        <LinkContainer to="/vendor/Home">
                             <Navbar.Brand>E-mart</Navbar.Brand>
                         </LinkContainer>
 

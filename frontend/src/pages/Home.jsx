@@ -13,11 +13,11 @@ const Home = () => {
             <Navbar bg="dark" variant="dark" >
 
               <Container>
-               <LinkContainer to="/Home">
+               <LinkContainer to="/vendor/Home">
                   <Navbar.Brand>E-mart</Navbar.Brand>
                 </LinkContainer>
 
-                {currentUser && <LinkContainer to="/add">
+                {currentUser && <LinkContainer to="/vendor/add">
                   <Navbar.Brand>Add Product</Navbar.Brand>
                 </LinkContainer>}
               </Container>

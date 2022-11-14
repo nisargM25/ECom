@@ -20,7 +20,7 @@ const VRegister = () => {
         e.preventDefault()
         try {
             await axios.post("http://localhost:8800/api/auth/vregister", inputs)
-            navigate("/");//hello
+            navigate("/vendor");
         } catch (error) {
             console.log(error)
         }
