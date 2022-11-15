@@ -66,7 +66,7 @@ app.put("/updateProduct/:id",(req, res) => {
 
 //Aniket
 app.get("/api/products", (req, res) => {
-  db.query("SELECT*FROM product", (err, rows, fields) => {
+  db.query("SELECT*FROM product", (err, rows) => {
     if (!err) res.send(rows);
     else console.log(err);
   });
@@ -76,7 +76,7 @@ app.get("/api/products", (req, res) => {
 app.get("/api/products/:p_id", (req, res) => {
   const pid = req.params.p_id;
   const query = `SELECT*FROM product WHERE p_id =${pid}`;
-  db.query(query, (err, rows, fields) => {
+  db.query(query, (err, rows) => {
     if (!err) {
       console.log(rows);
       res.send(rows);
@@ -86,12 +86,15 @@ app.get("/api/products/:p_id", (req, res) => {
   });
 });
 
-//post api
-app.post("/api/products/", (req, res) => {
-  console.log("post api is working");
-  const data = req.body;
-  const query = "Insert into cart(`cart_id`,`c_id`,`p_id`) VAlUES (?) ";
-  db.query(query, data, (err, rows, fields) => {
+//Add to Cart api
+app.post("/api/cart_product/", (req, res) => {
+  // console.log(req.body);
+  // const data = req.body;
+  const query = "Insert into cart(`c_id`,`p_id`) VAlUES (?) ";
+  const data = [  
+    req.body.c_id,
+    req.body.p_id]
+  db.query(query, [data], (err, rows) => {
     if (!err) {
       res.send(rows);
     } else {

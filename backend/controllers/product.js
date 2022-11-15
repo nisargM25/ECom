@@ -18,7 +18,7 @@ export const SoldProduct = (req, res) => {
 }
 
 export const addProduct = (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     const q = "INSERT INTO `product` (`p_name`, `p_desc`, `p_image`, `p_price`, `v_id`, `cat_id`) VALUES (?)";
     const values = [
         req.body.p_name,
