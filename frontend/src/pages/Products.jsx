@@ -22,6 +22,13 @@ const Products = () => {
         }
         fetchProducts();
     })
+    const setToLocalStorage = (p_name,p_desc,p_price,p_image,cat_id) => {
+        localStorage.setItem("name", p_name);
+        localStorage.setItem("desc", p_desc);
+        localStorage.setItem("price", p_price);
+        localStorage.setItem("image", p_image);
+        localStorage.setItem("cat", cat_id);
+    };
 
     const handleDelete = async (id) => {
         try {
@@ -49,7 +56,17 @@ const Products = () => {
                                         <Card.Title>{product.p_name}</Card.Title>
                                         <div className="gap-1">
                                             <Button variant="outline-dark" className="delete btnP" onClick={() => handleDelete(product.p_id)}>Delete</Button>
-                                            <Button variant="outline-dark" className="Update btnP"><Link to={`/vendor/update/${product.p_id}`}>Update</Link></Button> 
+                                            <Link to={`/vendor/update/${product.p_id}`}>
+                                                <button  className="Update btnP btn btn-outline-dark"
+                                                    onClick={()=>setToLocalStorage(
+                                                        product.p_name,
+                                                        product.p_desc,
+                                                        product.p_price,
+                                                        product.cat_id,
+                                                        product.p_image
+
+                                                    )}
+                                                >Update</button> </Link>
                                         </div>
                                     </Card.Body>
                                 </Card>

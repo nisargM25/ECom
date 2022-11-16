@@ -31,7 +31,7 @@ function App() {
             <Route path="/vendor/update/:id" element={currentUser ? <Update /> : <VLogin />} />
           </Routes>
           <div className="d-flex flex-column">
-          <Container >
+          <Container>
             <Routes>
               <Route path="/product/:p_id" element={<ProductScreen />} />
               <Route path="/" element={<HomeScreen />} />
