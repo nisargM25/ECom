@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from "react-router-bootstrap";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
+import { AuthContext } from '../context/authContext'
 
 function Header() {
+  const { currentUser, vlogout } = useContext(AuthContext);
   return (
     <>
       <header className="mb-4">
@@ -34,6 +36,10 @@ function Header() {
                 cart
                 <sup> {"4"}</sup>
               </Link>
+              <div className="UserName">
+                <span></span>
+                {currentUser && <span className="logoutUser" onClick={vlogout}>Logout {currentUser?.v_name}</span>}
+              </div>
             </Nav>
           </Container>
         </Navbar>

@@ -4,7 +4,6 @@ import bcrypt from 'bcryptjs';
 
 
 export const vregister = (req, res) => {
-    
     //Check exisiting user
     const q = "Select * from vendor where v_email=?"
     db.query(q, [req.body.v_email], (err, data) => {
@@ -29,6 +28,34 @@ export const vregister = (req, res) => {
     })
 
 }
+
+export const cregister = (req, res) => {
+    //Check exisiting user
+    const q = "Select * from customer where c_email=?"
+    db.query(q, [req.body.c_email], (err, data) => {
+        if (err) return res.json(err);
+        if (data.length) return res.status(409).json("User Already exist");
+        //Hash the Password and create a user
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(req.body.c_password, salt);
+  
+        const q = "Insert into customer (`c_name`,`c_contact`,`c_email`,`c_address`,`c_password`) values(?)"
+        const values = [
+            req.body.c_name,
+            req.body.c_contact,
+            req.body.c_email,
+            req.body.c_address,
+            hash,
+        ]
+        db.query(q, [values], (err, data) => {
+              
+            if (err) return res.json(err);
+            if (data) return res.status(200).json("User Created");
+        })
+    })
+
+}
+
 export const vlogin = (req, res) => {
     //Check user
     const q = "select * from vendor where v_email =?";
@@ -47,8 +74,35 @@ export const vlogin = (req, res) => {
     })
 
 }
+
+export const clogin = (req, res) => {
+    //Check user
+    const q = "select * from customer where c_email =?";
+    db.query(q, [req.body.c_email], (err, data) => {
+        if (err) return res.json(err)
+        if (data.length === 0) return res.status(404).json("User not found");
+
+        // check password
+        const isPasswordCorrect = bcrypt.compareSync(req.body.c_password, data[0].c_password)
+        if (!isPasswordCorrect) return res.status(400).json("Wrong Email or Password")
+        const token = jwt.sign({ c_id: data[0].c_id }, "jwtkey");
+        const {c_pass,...other}=data[0]
+
+        res.cookie("access_tokenC", token, {httpOnly: true}).status(200).json(other)
+
+    })
+
+}
+
 export const vlogout = (req, res) => {
     res.clearCookie("access_token",{
+        sameSite:"none",
+        secure:true
+    }).status(200).json("Logged Out")
+    
+}
+export const clogout = (req, res) => {
+    res.clearCookie("access_tokenC",{
         sameSite:"none",
         secure:true
     }).status(200).json("Logged Out")

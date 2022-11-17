@@ -14,6 +14,8 @@ import LaptopScreen from "./pages/LaptopScreen";
 import AccessoriesScreen from "./pages/AccessoriesScreen";
 import "./index.css"
 import Cartscreen from "./pages/Cartscreen";
+import CLogin from "./pages/CLogin";
+import CRegister from "./pages/CRegister";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -30,12 +32,14 @@ function App() {
             <Route path="/vendor/update/:id" element={currentUser ? <Update /> : <VLogin />} />
 
             {/* Aniket  */}
-            <Route path="/product/:p_id" element={<ProductScreen />} />
-            <Route path="/" element={<HomeScreen />} />
-            <Route path="/mobile" element={<MobileScreen />} />
-            <Route path="/laptop" element={<LaptopScreen />} />
-            <Route path="/accessories" element={<AccessoriesScreen />} />
-            <Route path="/mycart" element={<Cartscreen />}
+            <Route path="/product/:p_id" element={currentUser ? <ProductScreen /> : <CLogin />} />
+            <Route path="/Home" element={currentUser ? <HomeScreen /> : <CLogin />} />
+            <Route path="/" element={!currentUser ? <CLogin />:<HomeScreen />  } />
+            <Route path="/cregister" element={!currentUser ? <CRegister /> : <HomeScreen />} />
+            <Route path="/mobile" element={currentUser ? <MobileScreen /> : <CLogin />} />
+            <Route path="/laptop" element={currentUser ? <LaptopScreen /> : <CLogin />} />
+            <Route path="/accessories" element={currentUser ? <AccessoriesScreen /> : <CLogin />} />
+            <Route path="/mycart" element={currentUser ? <Cartscreen /> : <CLogin />}
             />
           </Routes>
           {/* <div className="d-flex flex-column">

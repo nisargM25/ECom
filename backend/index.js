@@ -5,7 +5,6 @@ import multer from 'multer';
 import cookieParser from 'cookie-parser';
 import productRoutes from './routes/products.js'
 import authRoutes from './routes/auth.js'
-import userRoutes from './routes/users.js'
 
 const app = express();
 const db = mysql.createConnection(
@@ -39,7 +38,6 @@ app.post('/uploads', upload.single('p_image'), function (req, res) {
 
 
 app.use("/api/product",productRoutes)
-app.use("/api/users",userRoutes)
 app.use("/api/auth",authRoutes)
 
 

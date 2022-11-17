@@ -36,6 +36,10 @@ footer{
 .auth span{
    font-size: 14px;
 }
+.auth p{
+   font-size: 14px;
+   text-align: center;
+}
 .auth form{
     box-sizing: border-box;
     border: 1px solid grey;
