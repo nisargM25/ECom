@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import  axios  from 'axios'
-import { Button, Form } from 'react-bootstrap'
+import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 
 const VRegister = () => {
@@ -12,7 +11,7 @@ const VRegister = () => {
         v_address: "",
         v_pass: "",
     })
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const handleChange = e => {
         setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
@@ -27,34 +26,31 @@ const VRegister = () => {
     }
     return (
         <div className='auth'>
-            <Form>
-                <Form.Group className="mb-3" >
-                    <Form.Control required  onChange={handleChange} name="v_name" type="text" placeholder="Enter Name" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" >
-                    <Form.Control required  onChange={handleChange} name="v_email" type="email" placeholder="Enter Email" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" >
-                    <Form.Control required onChange={handleChange} name="v_contact" type="number" placeholder="Enter Mobile Number" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" >
-                    <Form.Control required onChange={handleChange} as="textarea" col={5} name="v_address" placeholder="Enter Shop Address" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" >
-                    <Form.Control required onChange={handleChange} name="v_pass" type="password" placeholder="Enter Password" />
-                </Form.Group>
-
-
-
-                <Button onClick={handleSubmit} variant="outline-dark" type="submit">
-                    Sign up
-                </Button>{'  '}
-                <span>Already have a Account? <Link to="/">Login</Link></span>
-            </Form></div>
+            
+            <div className='form'>
+                <form onSubmit={handleSubmit}>
+                    <h1>Register</h1>
+                    <div className="mb-3">
+                        <input required onChange={handleChange} className="form-control" name="v_name" type="text" placeholder="Enter Name" />
+                    </div>
+                    <div className="mb-3">
+                        <input required onChange={handleChange} className="form-control" name="v_email" type="email" placeholder="Enter Email" />
+                    </div>
+                    <div className="mb-3">
+                        <input required onChange={handleChange} className="form-control" name="v_contact" type="number" placeholder="Enter Mobile Number" />
+                    </div>
+                    <div className="mb-3">
+                        <input required onChange={handleChange} className="form-control" name="v_pass" type="password" placeholder="Enter Password" />
+                    </div>
+                    <div className="mb-3">
+                    <textarea required onChange={handleChange} className="form-control" col={5} name="v_address" placeholder="Enter Shop Address" />
+                    </div>
+                    
+                    <button type='submit' className="btn btn-outline-dark" >Sign up</button>{" "}
+                    <span>Already have a Account? <Link to="/vendor">Login</Link></span>
+                </form>
+            </div>
+        </div>
     )
 }
 

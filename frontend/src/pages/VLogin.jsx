@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useContext } from 'react'
-import { Button, Form } from 'react-bootstrap'
+
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/authContext'
 
@@ -26,22 +26,19 @@ const VLogin = () => {
     }
     return (
         <div className='auth'>
-            <Form>
-                <Form.Group className="mb-3" >
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control required type="email" name="v_email" placeholder="Enter email" onChange={handleChange} />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control required type="password" placeholder="Password" name='v_pass' onChange={handleChange} />
-                </Form.Group>
-                
-                <Button variant="outline-dark" onClick={handleSubmit} type="submit">
-                    Login
-                </Button>{'  '}
-                <span>Don't have a Account? <Link to="/VRegister">Register</Link></span>
-            </Form>
+            <div className='form'>
+                <form onSubmit={handleSubmit}>
+                    <h1>Login</h1>
+                    <div className="mb-3">
+                        <input required onChange={handleChange} className="form-control" name="v_email" type="email" placeholder="Enter Email" />
+                    </div>
+                    <div className="mb-3">
+                        <input required onChange={handleChange} className="form-control" name="v_pass" type="password" placeholder="Enter Password" />
+                    </div>
+                    <button type='submit' className="btn btn-outline-dark" >Sign in</button>{'  '}
+                <span>Don't have a Account? <Link to="/vendor/VRegister">Register</Link></span>
+                </form>
+            </div>
         </div>
     )
 }

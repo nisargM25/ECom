@@ -71,32 +71,6 @@ const Add = () => {
                 </Navbar>
             </header>
             <main>
-
-                {/* <div className='form'>
-                    <h1>Add New Product</h1>
-                    <Form>
-                        <Form.Group className="mb-3" >
-                            <Form.Control type="text" onChange={e => setP_Name(e.target.value)} name='p_name' placeholder="Enter Product Name" />
-                        </Form.Group>
-                        <Form.Group className="mb-3" >
-                            <Form.Control as="textarea" rows={3} onChange={e => setP_Desc(e.target.value)} name='p_desc' placeholder="Enter Product Description" />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Control type="number" onChange={e => setP_Price(e.target.value)} name='p_price' placeholder="Enter Product Price" />
-                        </Form.Group>
-                        <Form.Select onChange={e => setCat_Id(parseInt(e.target.value))} className="mb-3" name='cat_id' >
-                            <option disabled>Open this select menu</option>
-                            <option value="1">Mobile</option>
-                            <option value="2">Laptop</option>
-                            <option value="3">Accessories</option>
-                        </Form.Select>
-                        <Form.Group className="mb-3" >
-                            <Form.Control type="file" onChange={e => setP_Image(e.target.files[0])} name='p_image' placeholder="Upload Image" />
-                        </Form.Group>
-                        <Button variant="outline-dark" onClick={handleClick}>Add Product</Button>
-                    </Form>
-
-                </div> */}
                 <div className='form'>
                     <h1>Add the Product</h1>
                     <form onSubmit={handleClick}>

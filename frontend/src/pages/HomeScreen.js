@@ -7,6 +7,7 @@ import Nav from "react-bootstrap/Nav";
 import Header from "../components/Header";
 import Form from "react-bootstrap/Form";
 import Footer from "../components/Footer";
+import { Container } from "react-bootstrap";
 
 function HomeScreen() {
   const [products, setProducts] = useState([]);
@@ -27,6 +28,9 @@ function HomeScreen() {
       <div className="ABody">
 
         <Nav className="ml-auto">
+        </Nav>
+        <div className="d-flex flex-column">
+          <Container>
           <Form inline="true">
             <Form.Control
               type="text"
@@ -35,28 +39,31 @@ function HomeScreen() {
               onChange={(e) => setSearch(e.target.value)}
             />
           </Form>
-        </Nav>
-        <h1>Featured Products</h1>
-        <div className="products">
-          <Row>
-            {products.p_name === "" ? (
-              <div>
-                <p>NO DATA FOUND</p>
-              </div>
-            ) : (
-              products
-                .filter((item) => {
-                  return search.toLowerCase() === ""
-                    ? item
-                    : item.p_name.toLowerCase().includes(search);
-                })
-                .map((product) => (
-                  <Col key={product.p_id} sm={6} md={4} lg={3} className="mb-3">
-                    <Product product={product}></Product>
-                  </Col>
-                ))
-            )}
-          </Row>
+
+
+            <h1>Featured Products</h1>
+            <div className="products">
+              <Row>
+                {products.p_name === "" ? (
+                  <div>
+                    <p>NO DATA FOUND</p>
+                  </div>
+                ) : (
+                  products
+                    .filter((item) => {
+                      return search.toLowerCase() === ""
+                        ? item
+                        : item.p_name.toLowerCase().includes(search);
+                    })
+                    .map((product) => (
+                      <Col key={product.p_id} sm={6} md={4} lg={3} className="mb-3">
+                        <Product product={product}></Product>
+                      </Col>
+                    ))
+                )}
+              </Row>
+            </div>
+          </Container>
         </div>
       </div>
       <Footer />

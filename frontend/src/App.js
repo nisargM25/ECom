@@ -14,7 +14,6 @@ import LaptopScreen from "./pages/LaptopScreen";
 import AccessoriesScreen from "./pages/AccessoriesScreen";
 import "./index.css"
 import Cartscreen from "./pages/Cartscreen";
-import { Container } from "react-bootstrap";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -23,29 +22,27 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <div>
-          <Routes suppressNoMatchWarning={true}>
+          <Routes>
             <Route path="/vendor/Home" element={currentUser ? <Home /> : <VLogin />} />
             <Route path="/vendor/VRegister" element={!currentUser ? <VRegister /> : <Home />} />
             <Route path="/vendor/" element={!currentUser ? <VLogin /> : <Home />} />
             <Route path="/vendor/add" element={currentUser ? <Add /> : <VLogin />} />
             <Route path="/vendor/update/:id" element={currentUser ? <Update /> : <VLogin />} />
+
+            {/* Aniket  */}
+            <Route path="/product/:p_id" element={<ProductScreen />} />
+            <Route path="/" element={<HomeScreen />} />
+            <Route path="/mobile" element={<MobileScreen />} />
+            <Route path="/laptop" element={<LaptopScreen />} />
+            <Route path="/accessories" element={<AccessoriesScreen />} />
+            <Route path="/mycart" element={<Cartscreen />}
+            />
           </Routes>
-          <div className="d-flex flex-column">
+          {/* <div className="d-flex flex-column">
           <Container>
-            <Routes>
-              <Route path="/product/:p_id" element={<ProductScreen />} />
-              <Route path="/" element={<HomeScreen />} />
-              <Route path="/mobile" element={<MobileScreen />} />
-              <Route path="/laptop" element={<LaptopScreen />} />
-              <Route path="/accessories" element={<AccessoriesScreen />} />
-              <Route
-                path="/mycart"
-                element={<Cartscreen  />}
-              />
-            </Routes>
+            
           </Container>
-        
-      </div>
+      </div> */}
         </div>
       </BrowserRouter>
     </div>
