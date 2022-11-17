@@ -62,9 +62,8 @@ const Products = () => {
                                                         product.p_name,
                                                         product.p_desc,
                                                         product.p_price,
-                                                        product.cat_id,
-                                                        product.p_image
-
+                                                        product.p_image,
+                                                        product.cat_id
                                                     )}
                                                 >Update</button> </Link>
                                         </div>

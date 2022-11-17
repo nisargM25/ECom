@@ -44,24 +44,24 @@ app.use("/api/auth",authRoutes)
 
 
 
-app.put("/updateProduct/:id",(req, res) => {
-    const pid = parseInt(req.params.id);
-    const q = "Update product set `p_name`=?,`p_desc`=?,`p_price`=?,`p_image`=? where p_id=?";
-    const values = [
-        
-        req.body.p_name,
-        req.body.p_desc,
-        req.body.p_price,
-        req.body.cat_id,
-        req.body.p_image
-    ]
-    db.query(q, [...values,pid] , (err, data) => {
-        if (err) {
-            return res.json(err);
-        }
-        return res.json("Product has been Updated successfully!")
-    })
-})
+// app.put("/updateProduct/:id",(req, res) => {
+//     const pid = parseInt(req.param.id);
+//     console.log(pid)
+//     const q = "Update product set `p_name`=?,`p_desc`=?,`p_price`=?,`p_image`=? where p_id=?";
+//     const values = [
+//         req.body.p_name,
+//         req.body.p_desc,
+//         req.body.p_price,
+//         req.body.cat_id,
+//         req.body.p_image
+//     ]
+//     db.query(q, [...values,pid] , (err, data) => {
+//         if (err) {
+//             return res.json(err);
+//         }
+//         return res.json("Product has been Updated successfully!")
+//     })
+// })
 
 
 //Aniket

@@ -35,15 +35,17 @@ export const addProduct = (req, res) => {
 }
 export const updateProduct = (req, res) => {
     const pid = parseInt(req.params.id);
-    const q = "Update product set `p_name`=?,`p_desc`=?,`p_price`=?,`p_image`=? where p_id=?";
+    console.log(pid)
+    const q = "Update product set p_name=?,p_desc=?,p_price=?,p_image=?,cat_id=? where p_id=?";
     const values = [
         req.body.p_name,
         req.body.p_desc,
-        req.body.p_image,
         req.body.p_price,
-        req.body.cat_id]
+        req.body.p_image,
+        req.body.cat_id     
+    ]
 
-    db.query(q, [...values, pid], (err, data) => {
+    db.query(q, [...values,pid], (err, data) => {
         if (err) return res.status(500).json(err)
         return res.json("Product Updated")
     })

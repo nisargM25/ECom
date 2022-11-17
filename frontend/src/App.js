@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <div>
-          <Routes>
+          <Routes suppressNoMatchWarning={true}>
             <Route path="/vendor/Home" element={currentUser ? <Home /> : <VLogin />} />
             <Route path="/vendor/VRegister" element={!currentUser ? <VRegister /> : <Home />} />
             <Route path="/vendor/" element={!currentUser ? <VLogin /> : <Home />} />

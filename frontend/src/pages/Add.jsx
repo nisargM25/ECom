@@ -2,7 +2,7 @@
 import axios from 'axios';
 import React, { useContext } from 'react'
 import { useState } from 'react'
-import { Button, Container, Form, Navbar } from 'react-bootstrap';
+import {  Container,  Navbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/authContext';
@@ -37,9 +37,7 @@ const Add = () => {
     const handleClick = async e => {
         e.preventDefault()
         setV_ID(currentUser.v_id)
-        console.log(v_id)
         const imgUrl = await upload();
-
         try {
             await axios.post('http://localhost:8800/api/product', { p_name, p_desc, p_price, cat_id, imgUrl, v_id })
             navigate("/vendor/Home");
@@ -48,6 +46,7 @@ const Add = () => {
         }
 
     }
+    
 
 
     return (
@@ -60,7 +59,7 @@ const Add = () => {
                             <Navbar.Brand>E-mart</Navbar.Brand>
                         </LinkContainer>
 
-                        {currentUser && <LinkContainer to="/add">
+                        {currentUser && <LinkContainer to="/vendor/add">
                             <Navbar.Brand>Add Product</Navbar.Brand>
                         </LinkContainer>}
                     </Container>
@@ -73,7 +72,7 @@ const Add = () => {
             </header>
             <main>
 
-                <div className='form'>
+                {/* <div className='form'>
                     <h1>Add New Product</h1>
                     <Form>
                         <Form.Group className="mb-3" >
@@ -97,6 +96,32 @@ const Add = () => {
                         <Button variant="outline-dark" onClick={handleClick}>Add Product</Button>
                     </Form>
 
+                </div> */}
+                <div className='form'>
+                    <h1>Add the Product</h1>
+                    <form onSubmit={handleClick}>
+                        <div className="mb-3">
+                            <input type="text" value={p_name} required className="form-control" onChange={(e) => setP_Name(e.target.value)} name='p_name' placeholder="Enter Product Name" />
+                        </div>
+                        <div className="mb-3">
+                            <textarea required value={p_desc} className="form-control" rows={3} onChange={(e) => setP_Desc(e.target.value)} name='p_desc' placeholder="Enter Product Description" />
+                        </div>
+                        <div className="mb-3">
+                            <select onChange={(e) => setCat_Id(e.target.value)} value={parseInt(cat_id)} className="mb-3 form-select" name='cat_id' >
+                                <option disabled>Open this select menu</option>
+                                <option value="1">Mobile</option>
+                                <option value="2">Laptop</option>
+                                <option value="3">Accessories</option>
+                            </select>
+                        </div>
+                        <div className="mb-3">
+                            <input type="number" value={p_price} required className="form-control" onChange={(e) => setP_Price(e.target.value)} name='p_price' placeholder="Enter Product Price" />
+                        </div>
+                        <div className="mb-3">
+                            <input type="file" required  className="form-control" onChange={(e) => setP_Image(e.target.files[0])} name='p_image' placeholder="Upload Image" />
+                        </div>
+                        <button type='submit' className="btn btn-outline-dark" >Add Product</button>
+                    </form>
                 </div>
             </main>
             <footer>
