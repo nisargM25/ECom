@@ -43,7 +43,7 @@ app.use("/api/auth",authRoutes)
 
 //Aniket
 app.get("/api/products", (req, res) => {
-  db.query("SELECT*FROM product", (err, rows) => {
+  db.query("SELECT*FROM product", (err, rows, fields) => {
     if (!err) res.send(rows);
     else console.log(err);
   });
@@ -53,7 +53,7 @@ app.get("/api/products", (req, res) => {
 app.get("/api/products/:p_id", (req, res) => {
   const pid = req.params.p_id;
   const query = `SELECT*FROM product WHERE p_id =${pid}`;
-  db.query(query, (err, rows) => {
+  db.query(query, (err, rows, fields) => {
     if (!err) {
       console.log(rows);
       res.send(rows);
@@ -63,17 +63,43 @@ app.get("/api/products/:p_id", (req, res) => {
   });
 });
 
-//Add to Cart api
+//post api for getting product id for cart:
 app.post("/api/cart_product/", (req, res) => {
   // console.log(req.body);
   // const data = req.body;
   const query = "Insert into cart(`c_id`,`p_id`) VAlUES (?) ";
-  const data = [  
-    req.body.c_id,
-    req.body.p_id]
+  const data = [req.body.c_id, req.body.p_id];
   db.query(query, [data], (err, rows) => {
     if (!err) {
       res.send(rows);
+    } else {
+      console.log(err);
+    }
+  });
+});
+
+//for added data in cart get api
+app.get("/api/cart_product/cartscreen", (req, res) => {
+  const query =
+    "SELECT product.p_id, cart.cart_id, product.p_name,product.p_image,product.p_price FROM cart  INNER JOIN product ON cart.p_id=product.p_id";
+  db.query(query, (err, rows, fields) => {
+    if (!err) {
+      console.log(rows);
+      res.send(rows);
+    } else {
+      console.log(err);
+    }
+  });
+});
+
+//delete api for remove cart
+app.delete("/api/cart_product/cartscreen/:cart_id", (req, res) => {
+  const cid = req.params.cart_id;
+
+  db.query(`DELETE from cart where cart_id = ${cid}`, (err, rows) => {
+    if (!err) {
+      //console.log(rows);
+      res.send("deleted successfully.");
     } else {
       console.log(err);
     }

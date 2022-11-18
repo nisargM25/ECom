@@ -31,14 +31,18 @@ function HomeScreen() {
         </Nav>
         <div className="d-flex flex-column">
           <Container>
-          <Form inline="true">
-            <Form.Control
-              type="text"
-              placeholder="Search Filter"
-              className="mr-sm-2"
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </Form>
+            <div class="container">
+              <div class="row col-sm-3">
+                <Form inline="true">
+                  <Form.Control
+                    type="text"
+                    placeholder="Search Filter"
+                    className="mr-sm-2"
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                </Form>
+              </div>
+            </div>
 
 
             <h1>Featured Products</h1>

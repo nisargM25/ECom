@@ -28,7 +28,8 @@ export const vregister = (req, res) => {
         db.query(q, [values], (err, data) => {
             if (err) return res.json(err);
             if (data) {
-                
+                const vendorName=req.body.v_name;
+                console.log(vendorName)
                 const mail = nodemailer.createTransport({
                     host: 'smtp.gmail.com',
                     port: 587,
@@ -42,7 +43,7 @@ export const vregister = (req, res) => {
                     from: 'vendorconf7@gmail.com',
                     to: req.body.v_email,
                     subject: "Vendor Confirmation",
-                    html:"Mail Sent"
+                    html:"<p>Hi "+vendorName+"</p><p>Thank you for signing up for Emart Vendor</p><p>To get you started, please <a>click here</a> to log in to your account for the first time.</p> <p>If you didn't register, please ignore this message.</p><p>Regards,<br/>The Emart team</p>"
                 },(err,data)=>{
                     if(err) throw err
                     if(data) res.send('User Created!! Confirm Through Email to Register')
