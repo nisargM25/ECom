@@ -47,8 +47,6 @@ const Add = () => {
 
     }
     
-
-
     return (
         <div className="d-flex flex-column site-container">
             <header className="App-header">

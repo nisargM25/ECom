@@ -1,10 +1,10 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
-export const AuthContext = createContext()
+export const AuthClientContext = createContext()
 
-export const AuthContextProvider = ({ children }) => {
-    const [currentClient, setCurrentClient] = useState(JSON.parse(localStorage.getItem("user")) || null)
+export const AuthClientContextProvider = ({ children }) => {
+    const [currentClient, setCurrentClient] = useState(JSON.parse(localStorage.getItem("customer")) || null)
     
     const clogin = async (inputs) => {
         const res = await axios.post("http://localhost:8800/api/auth/clogin", inputs);
@@ -12,7 +12,7 @@ export const AuthContextProvider = ({ children }) => {
     }
 
     useEffect(()=>{
-        localStorage.setItem("user",JSON.stringify(currentClient));
+        localStorage.setItem("customer",JSON.stringify(currentClient));
     },[currentClient])
 
 
@@ -20,6 +20,6 @@ export const AuthContextProvider = ({ children }) => {
         await axios.post("http://localhost:8800/api/auth/clogout");
         setCurrentClient(null)
     }
-    return <AuthContext.Provider value={{currentClient,clogin,clogout}}>{children}</AuthContext.Provider>
+    return <AuthClientContext.Provider value={{currentClient,clogin,clogout}}>{children}</AuthClientContext.Provider>
     
 }

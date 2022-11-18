@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useContext } from 'react'
 
 import { Link, useNavigate } from 'react-router-dom'
-import { AuthContext } from '../context/authContext'
+import { AuthClientContext } from '../context/ClientauthContext'
 
 
 const CLogin = () => {
@@ -11,7 +11,7 @@ const CLogin = () => {
         c_password: "",
     })
     const navigate=useNavigate();
-    const {clogin}=useContext(AuthContext);
+    const {clogin}=useContext(AuthClientContext);
     const handleChange = e => {
         setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }

@@ -47,8 +47,7 @@ export const cregister = (req, res) => {
             req.body.c_address,
             hash,
         ]
-        db.query(q, [values], (err, data) => {
-              
+        db.query(q, [values], (err, data) => {      
             if (err) return res.json(err);
             if (data) return res.status(200).json("User Created");
         })
@@ -85,7 +84,7 @@ export const clogin = (req, res) => {
         // check password
         const isPasswordCorrect = bcrypt.compareSync(req.body.c_password, data[0].c_password)
         if (!isPasswordCorrect) return res.status(400).json("Wrong Email or Password")
-        const token = jwt.sign({ c_id: data[0].c_id }, "jwtkey");
+        const token = jwt.sign({ c_id: data[0].c_id }, "jwtkeyClient");
         const {c_pass,...other}=data[0]
 
         res.cookie("access_tokenC", token, {httpOnly: true}).status(200).json(other)

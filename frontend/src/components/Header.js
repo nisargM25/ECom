@@ -4,10 +4,10 @@ import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from "react-router-bootstrap";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
-import { AuthContext } from '../context/authContext'
+import { AuthClientContext } from "../context/ClientauthContext";
 
 function Header() {
-  const { currentUser, vlogout } = useContext(AuthContext);
+  const { currentClient, clogout } = useContext(AuthClientContext);
   return (
     <>
       <header className="mb-4">
@@ -38,7 +38,7 @@ function Header() {
               </Link>
               <div className="UserName">
                 <span></span>
-                {currentUser && <span className="logoutUser" onClick={vlogout}>Logout {currentUser?.v_name}</span>}
+                {currentClient && <span className="logoutUser" onClick={clogout}>Logout {currentClient?.c_name}</span>}
               </div>
             </Nav>
           </Container>

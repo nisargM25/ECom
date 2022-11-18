@@ -16,9 +16,12 @@ import "./index.css"
 import Cartscreen from "./pages/Cartscreen";
 import CLogin from "./pages/CLogin";
 import CRegister from "./pages/CRegister";
+import { AuthClientContext } from "./context/ClientauthContext";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
+  const { currentClient } = useContext(AuthClientContext);
+
 
   return (
     <div className="App">
@@ -32,14 +35,14 @@ function App() {
             <Route path="/vendor/update/:id" element={currentUser ? <Update /> : <VLogin />} />
 
             {/* Aniket  */}
-            <Route path="/product/:p_id" element={currentUser ? <ProductScreen /> : <CLogin />} />
-            <Route path="/Home" element={currentUser ? <HomeScreen /> : <CLogin />} />
-            <Route path="/" element={!currentUser ? <CLogin />:<HomeScreen />  } />
-            <Route path="/cregister" element={!currentUser ? <CRegister /> : <HomeScreen />} />
-            <Route path="/mobile" element={currentUser ? <MobileScreen /> : <CLogin />} />
-            <Route path="/laptop" element={currentUser ? <LaptopScreen /> : <CLogin />} />
-            <Route path="/accessories" element={currentUser ? <AccessoriesScreen /> : <CLogin />} />
-            <Route path="/mycart" element={currentUser ? <Cartscreen /> : <CLogin />}
+            <Route path="/product/:p_id" element={currentClient ? <ProductScreen /> : <CLogin />} />
+            <Route path="/Home" element={currentClient ? <HomeScreen /> : <CLogin />} />
+            <Route path="/" element={!currentClient ? <CLogin />:<HomeScreen />  } />
+            <Route path="/cregister" element={!currentClient ? <CRegister /> : <HomeScreen />} />
+            <Route path="/mobile" element={currentClient ? <MobileScreen /> : <CLogin />} />
+            <Route path="/laptop" element={currentClient ? <LaptopScreen /> : <CLogin />} />
+            <Route path="/accessories" element={currentClient ? <AccessoriesScreen /> : <CLogin />} />
+            <Route path="/mycart" element={currentClient ? <Cartscreen /> : <CLogin />}
             />
           </Routes>
           {/* <div className="d-flex flex-column">
