@@ -38,7 +38,7 @@ const Products = () => {
             console.log(error)
         }
     }
-    // console.log(products)
+  
     return (
 
         <div className='Top'>
@@ -71,7 +71,7 @@ const Products = () => {
                                 </Card>
                             </div>
                         ))) : (<Card style={{ width: '45rem' }}>
-                            <Card.Body><h3> No Product Added Add Product</h3></Card.Body>
+                            <Card.Body><h3> No Product Added, Add Product</h3></Card.Body>
                         </Card>)
                 }
 

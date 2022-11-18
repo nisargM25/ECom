@@ -47,7 +47,8 @@ const VRegister = () => {
                     </div>
                     
                     <button type='submit' className="btn btn-outline-dark" >Sign up</button>{" "}
-                    <span>Already have a Account? <Link to="/vendor">Login</Link></span>
+                    <span>Already have a Account? <Link to="/vendor">Login</Link></span><br/>{" "}<br/>
+                    <p>Sign in Customer?<Link to="/">Click Here</Link></p>
                 </form>
             </div>
         </div>
