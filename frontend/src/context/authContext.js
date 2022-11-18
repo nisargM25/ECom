@@ -11,13 +11,6 @@ export const AuthContextProvider = ({ children }) => {
         setCurrentUser(res.data)
     }
 
-    const clogin = async (inputs) => {
-        const res = await axios.post("http://localhost:8800/api/auth/clogin", inputs);
-        setCurrentUser(res.data)
-    }
-
-
-
     useEffect(()=>{
         localStorage.setItem("user",JSON.stringify(currentUser));
     },[currentUser])
@@ -26,11 +19,7 @@ export const AuthContextProvider = ({ children }) => {
     const vlogout = async (inputs) => {
         await axios.post("http://localhost:8800/api/auth/vlogout");
         setCurrentUser(null)
-    }
-    const clogout = async (inputs) => {
-        await axios.post("http://localhost:8800/api/auth/clogout");
-        setCurrentUser(null)
-    }
-    return <AuthContext.Provider value={{currentUser,vlogin,vlogout,clogin,clogout}}>{children}</AuthContext.Provider>
+    }    
+    return <AuthContext.Provider value={{currentUser,vlogin,vlogout}}>{children}</AuthContext.Provider>
     
 }
