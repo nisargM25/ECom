@@ -38,7 +38,7 @@ function ProductScreen() {
               <Col md={6} key={product.p_id}>
                 <img
                   className="img-large"
-                  src={"/images/p1.jpg"}
+                  src={`/upload/${product.p_image}`}
                   alt={product?.p_name}
                 ></img>
               </Col>

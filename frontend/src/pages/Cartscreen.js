@@ -48,14 +48,14 @@ function Cartscreen() {
             </Alert>
           ) : (
             cartItems.map((product) => (
-              <Col md={8}>
+              <Col key={product.p_id} md={8}>
                 <ListGroup>
                   <ListGroup.Item key={product.p_id}>
                     <Row className="align-items-center">
                       <Col md={3}>
                         <img
                           className="img-large img-fluid rounded img-thumbnail"
-                          src={"/images/p1.jpg"}
+                          src={`/upload/${product.p_image}`}
                           alt={product.p_name}
                         ></img>
                       </Col>

@@ -15,7 +15,7 @@ function Product(props) {
   return (
     <Card>
       <img
-        src={"/images/p1.jpg"}
+        src={`/upload/${product.p_image}`}
         className="card-img-top"
         alt={product.p_name}
       />

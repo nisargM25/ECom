@@ -82,9 +82,9 @@ const Update = () => {
                         <div className="mb-3">
                             <input type="number" value={p_price} required className="form-control" onChange={(e) => setP_Price(e.target.value)} name='p_price' placeholder="Enter Product Price" />
                         </div>
-                        <div className="mb-3">
+                        {/* <div className="mb-3">
                             <input type="file" className="form-control" onChange={(e) => setP_Image(e.target.files[0])} name='p_image' placeholder="Upload Image" />
-                        </div>
+                        </div> */}
                         <button type='submit' className="btn btn-outline-dark" >Update Product</button>
                     </form>
                 </div>
