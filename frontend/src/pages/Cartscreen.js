@@ -11,6 +11,7 @@ import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/esm/Button";
 import { removetoCart } from "../utils/removetoCart";
 import { useNavigate } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 function Cartscreen() {
   const navigate = useNavigate();
@@ -39,6 +40,8 @@ function Cartscreen() {
   return (
     <div>
       <Header />
+      <div className="d-flex flex-column">
+          <Container>
       <div className="ABody">
         <h1>Shopping cart</h1>
         <Row>
@@ -81,6 +84,8 @@ function Cartscreen() {
             ))
           )}
         </Row>
+      </div>
+      </Container>
       </div>
       <Footer />
     </div>

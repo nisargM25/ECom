@@ -8,6 +8,7 @@ import Button from "react-bootstrap/esm/Button";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { AddCart } from "../utils/addToCart";
+import { Container } from "react-bootstrap";
 
 function ProductScreen() {
   const params = useParams();
@@ -31,6 +32,10 @@ function ProductScreen() {
   return (
     <div>
       <Header />
+      <div className="d-flex flex-column">
+          <Container>
+
+          
       <div className="ABody">
         {products?.map((product) => {
           return (
@@ -65,6 +70,8 @@ function ProductScreen() {
           );
         })}
       </div>
+      </Container>
+          </div>
       <Footer />
     </div>
   );

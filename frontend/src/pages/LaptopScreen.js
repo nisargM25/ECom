@@ -7,6 +7,7 @@ import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Container } from "react-bootstrap";
 
 function LaptopScreen() {
   const [products, setProducts] = useState([]);
@@ -19,7 +20,8 @@ function LaptopScreen() {
     <div>
       <Header />
       <div className="ABody">
-
+      <div className="d-flex flex-column">
+          <Container>
       <Nav className="ml-auto">
         <Form inline="true">
           <Form.Control
@@ -49,6 +51,8 @@ function LaptopScreen() {
             </div>
           );
         })}
+        </Container>
+          </div>
         </div>
         <Footer/>
     </div>
