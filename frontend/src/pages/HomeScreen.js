@@ -31,8 +31,8 @@ function HomeScreen() {
         </Nav>
         <div className="d-flex flex-column">
           <Container>
-            <div class="container">
-              <div class="row col-sm-3">
+            <div className="container">
+              <div className="row col-sm-3">
                 <Form inline="true">
                   <Form.Control
                     type="text"

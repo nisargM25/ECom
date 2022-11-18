@@ -11,40 +11,40 @@ function Buy() {
     <div>
       <h1>Fill your details</h1>
       <form>
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleInputEmail1">Name</label>
           <input
             type="name"
-            class="form-control"
+            className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             placeholder="Enter your name"
             required
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleInputPassword1">Address</label>
           <input
             type="Address"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
             placeholder="enter your Address"
             required
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleInputPassword1">pincode</label>
           <input
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
             placeholder="Enter your city pincode"
             required
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleInputPassword1">Mobile number</label>
           <input
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
             placeholder="enter your mobile number"
             required
@@ -54,7 +54,7 @@ function Buy() {
         <button
           type="submit"
           onClick={() => gotoCart()}
-          class="btn btn-primary"
+          className="btn btn-primary"
         >
           Submit
         </button>
