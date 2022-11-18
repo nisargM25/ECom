@@ -34,7 +34,7 @@ function Header() {
               </i>
               <Link to="/mycart" className="nav-link">
                 cart
-                <sup> {"4"}</sup>
+                <i class="fa fa-cart-plus fa-6" aria-hidden="true"></i>
               </Link>
               <div className="UserName">
                 <span></span>
