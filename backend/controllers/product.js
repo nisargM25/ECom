@@ -35,7 +35,7 @@ export const addProduct = (req, res) => {
 }
 export const updateProduct = (req, res) => {
     const pid = parseInt(req.params.id);
-    console.log(pid)
+    
     const q = "Update product set p_name=?,p_desc=?,p_price=?,p_image=?,cat_id=? where p_id=?";
     const values = [
         req.body.p_name,

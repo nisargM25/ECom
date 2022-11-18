@@ -38,9 +38,9 @@ function Header() {
               </Link>
               <div className="UserName">
                 <span></span>
-                {currentClient && <span className="logoutUser" onClick={clogout}>Logout {currentClient?.c_name}</span>}
+                {currentClient && <span className="logoutUser" style={{padding:"8px"}} onClick={clogout}>Logout {currentClient?.c_name}</span>}
               </div>
-            </Nav>
+            </Nav>  
           </Container>
         </Navbar>
       </header>
