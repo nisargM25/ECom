@@ -62,9 +62,9 @@ function Cartscreen() {
                           alt={product.p_name}
                         ></img>
                       </Col>
-                      <Col md={2}>{product.p_price}</Col>
-                      <Col md={2}>{product.p_name}</Col>
-                      <Col md={3}>
+                      <Col md={2}>${product.p_price}</Col>
+                      <Col md={3}>{product.p_name}</Col>
+                      <Col md={2}>
                         <Button
                           variant="light"
                           onClick={() => handleClick(product.cart_id)}

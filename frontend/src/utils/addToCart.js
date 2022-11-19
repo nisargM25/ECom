@@ -1,14 +1,11 @@
 import axios from "axios";
-import  useContext  from "react";
-import { AuthClientContext } from "../context/ClientauthContext";
 
 const url = "http://localhost:8800/api/cart_product/";
 export const AddCart = async (p_id) => {
-  const { currentClient } = useContext(AuthClientContext);
-  console.log("clicked");
+console.log()
   try {
     const response = await axios.post(url, {
-      c_id: currentClient.c_id,
+      c_id: 1,
       p_id,
     });
     //debugger;

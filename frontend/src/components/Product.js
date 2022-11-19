@@ -24,7 +24,7 @@ function Product(props) {
         <Link to={`/product/${product.p_id}`}>
           <Card.Title>{product.p_name}</Card.Title>
         </Link>
-        <Card.Text>{product.p_price}</Card.Text>
+        <Card.Text>Price:${product.p_price}</Card.Text>
         <Button onClick={() => handleClick(product.p_id)}>Add to cart</Button>
       </Card.Body>
     </Card>

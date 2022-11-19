@@ -34,11 +34,11 @@ function Header() {
               </i>
               <Link to="/mycart" className="nav-link">
                 cart
-                <i class="fa fa-cart-plus fa-6" aria-hidden="true"></i>
+                <i className="fa fa-cart-plus fa-6" aria-hidden="true"></i>
               </Link>
               <div className="UserName">
                 <span></span>
-                {currentClient && <span className="logoutUser" style={{padding:"8px"}} onClick={clogout}>Logout {currentClient?.c_name}</span>}
+                {currentClient && <span className="logoutUser" style={{padding:"8px", fontSize:"18px",marginTop:"2px"}} onClick={clogout}>Logout {currentClient?.c_name}</span>}
               </div>
             </Nav>  
           </Container>

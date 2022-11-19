@@ -9,8 +9,10 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { AddCart } from "../utils/addToCart";
 import { Container } from "react-bootstrap";
+// import { AuthClientContext } from "../context/ClientauthContext";
 
 function ProductScreen() {
+  // const { currentClient } = useContext(AuthClientContext);
   const params = useParams();
   const { p_id } = params;
   //for getting pid with help of params
@@ -52,7 +54,7 @@ function ProductScreen() {
                   <ListGroup.Item>
                     <h1>{product?.p_name}</h1>
                   </ListGroup.Item>
-                  <ListGroup.Item>Price:{product?.p_price}</ListGroup.Item>
+                  <ListGroup.Item>Price:${product?.p_price}</ListGroup.Item>
                   <ListGroup.Item>Description:{product?.p_desc}</ListGroup.Item>
                   <ListGroup.Item>
                     <div className="d-grid">

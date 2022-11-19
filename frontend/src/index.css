@@ -69,3 +69,9 @@ main{
 .img-thumbnail {
   height: 80px;
 }
+.navbar-brand{
+font-size: 24px;
+}
+.UserName{
+  margin-top: 7px;
+}
