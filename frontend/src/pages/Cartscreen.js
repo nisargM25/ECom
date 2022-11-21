@@ -47,7 +47,7 @@ function Cartscreen() {
         <Row>
           {cartItems.length === 0 ? (
             <Alert variant="dark">
-              Cart is empty <Alert.Link href="/">Go for shopping</Alert.Link>
+              Cart is empty <Alert.Link href="/">Go for shopping</Alert.Link> 
             </Alert>
           ) : (
             cartItems.map((product) => (
