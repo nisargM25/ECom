@@ -119,6 +119,28 @@ export const clogin = (req, res) => {
 
 }
 
+export const forgetpassword = (req, res) => {
+    //Check user
+    const q = "select * from customer where c_email =?";
+    db.query(q, [req.body.c_email], (err, data) => {
+        if (err) return res.json(err)
+        if (data.length === 0) return res.status(404).json("User not found");
+
+
+
+        
+        // check password
+        const isPasswordCorrect = bcrypt.compareSync(req.body.c_password, data[0].c_password)
+        if (!isPasswordCorrect) return res.status(400).json("Wrong Email or Password")
+        const token = jwt.sign({ c_id: data[0].c_id }, "jwtkeyClient");
+        const { c_pass, ...other } = data[0]
+
+        res.cookie("access_tokenC", token, { httpOnly: true }).status(200).json(other)
+
+    })
+
+}
+
 export const vlogout = (req, res) => {
     res.clearCookie("access_token", {
         sameSite: "none",

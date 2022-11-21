@@ -1,5 +1,5 @@
 import express from 'express';
-import { vlogin, vlogout, vregister,clogin,cregister,clogout } from '../controllers/auth.js';
+import { vlogin, vlogout, vregister,clogin,cregister,clogout,forgetpassword } from '../controllers/auth.js';
 
 const router=express.Router();
 router.post("/vregister",vregister)
@@ -10,5 +10,7 @@ router.post("/clogin",clogin)
 
 router.post("/vlogout",vlogout)
 router.post("/clogout",clogout)
+
+router.post("/forgetpassword",forgetpassword)
 
 export default router

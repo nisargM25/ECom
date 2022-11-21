@@ -2,10 +2,10 @@ import axios from "axios";
 
 const url = "http://localhost:8800/api/cart_product/";
 export const AddCart = async (p_id) => {
-console.log()
+  console.log();
   try {
     const response = await axios.post(url, {
-      c_id: 1,
+      c_id: 3,
       p_id,
     });
     //debugger;

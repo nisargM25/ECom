@@ -36,7 +36,8 @@ const VLogin = () => {
                         <input required onChange={handleChange} className="form-control" name="v_pass" type="password" placeholder="Enter Password" />
                     </div>
                     <button type='submit' className="btn btn-outline-dark" >Sign in</button>{'  '}
-                <span>Don't have a Account? <Link to="/vendor/VRegister">Register</Link></span>
+                {/* <span>Forgot Password? <Link to="/vendor/VRegister">Reset Password</Link></span><br/>{' '} */}
+                <p>Don't have a Account? <Link to="/vendor/VRegister">Register</Link></p>
                 </form>
             </div>
         </div>

@@ -22,57 +22,62 @@ function HomeScreen() {
   }, []);
 
   return (
-
     <div>
       <Header />
-      <div className="ABody">
-
-        <Nav className="ml-auto">
-        </Nav>
-        <div className="d-flex flex-column">
-          <Container>
-            <div className="container">
-              <div className="row col-sm-3">
-                <Form inline="true">
-                  <Form.Control
-                    type="text"
-                    placeholder="Search Filter"
-                    className="mr-sm-2"
-                    onChange={(e) => setSearch(e.target.value)}
-                  />
-                </Form>
+      <main>
+        <div className="ABody">
+          <Nav className="ml-auto"></Nav>
+          <div className="d-flex flex-column">
+            <Container>
+              <div className="container">
+                <div className="row col-sm-3">
+                  <Form inline="true">
+                    <Form.Control
+                      type="text"
+                      placeholder="Search Filter"
+                      className="mr-sm-2"
+                      onChange={(e) => setSearch(e.target.value)}
+                    />
+                  </Form>
+                </div>
               </div>
-            </div>
 
-
-            <h1>Featured Products</h1>
-            <div className="products">
-              <Row>
-                {products.p_name === "" ? (
-                  <div>
-                    <p>NO DATA FOUND</p>
-                  </div>
-                ) : (
-                  products
-                    .filter((item) => {
-                      return search.toLowerCase() === ""
-                        ? item
-                        : item.p_name.toLowerCase().includes(search);
-                    })
-                    .map((product) => (
-                      <Col key={product.p_id} sm={6} md={4} lg={3} className="mb-3">
-                        <Product product={product}></Product>
-                      </Col>
-                    ))
-                )}
-              </Row>
-            </div>
-          </Container>
+              <h1>Featured Products</h1>
+              <div className="products">
+                <Row>
+                  {products.p_name === "" ? (
+                    <div>
+                      <p>NO DATA FOUND</p>
+                    </div>
+                  ) : (
+                    products
+                      .filter((item) => {
+                        return search.toLowerCase() === ""
+                          ? item
+                          : item.p_name.toLowerCase().includes(search);
+                      })
+                      .map((product) => (
+                        <Col
+                          key={product.p_id}
+                          sm={6}
+                          md={4}
+                          lg={3}
+                          className="mb-3"
+                        >
+                          <Product product={product}></Product>
+                        </Col>
+                      ))
+                  )}
+                </Row>
+              </div>
+            </Container>
+          </div>
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   );
 }
 
 export default HomeScreen;
+  

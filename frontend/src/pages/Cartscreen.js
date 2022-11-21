@@ -11,7 +11,7 @@ import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/esm/Button";
 import { removetoCart } from "../utils/removetoCart";
 import { useNavigate } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 
 function Cartscreen() {
   const navigate = useNavigate();
@@ -37,55 +37,82 @@ function Cartscreen() {
   const gotobuy = () => {
     navigate("/buy");
   };
+
+  let price = 0;
+
   return (
     <div>
       <Header />
       <div className="d-flex flex-column">
-          <Container>
-      <div className="ABody">
-        <h1>Shopping cart</h1>
-        <Row>
-          {cartItems.length === 0 ? (
-            <Alert variant="dark">
-              Cart is empty <Alert.Link href="/">Go for shopping</Alert.Link> 
-            </Alert>
-          ) : (
-            cartItems.map((product) => (
-              <Col key={product.p_id} md={8}>
-                <ListGroup>
-                  <ListGroup.Item key={product.p_id}>
-                    <Row className="align-items-center">
-                      <Col md={3}>
-                        <img
-                          className="img-large img-fluid rounded img-thumbnail"
-                          src={`/upload/${product.p_image}`}
-                          alt={product.p_name}
-                        ></img>
-                      </Col>
-                      <Col md={2}>${product.p_price}</Col>
-                      <Col md={3}>{product.p_name}</Col>
-                      <Col md={2}>
-                        <Button
-                          variant="light"
-                          onClick={() => handleClick(product.cart_id)}
-                        >
-                          <i className="fas fa-trash"></i>
-                        </Button>
-                      </Col>
-                      <Col md={2}>
-                        <Button variant="dark" onClick={() => gotobuy()}>
-                          Buy Now
-                        </Button>
-                      </Col>
-                    </Row>
-                  </ListGroup.Item>
-                </ListGroup>
+        <Container>
+          <div className="ABody">
+            <h1>Shopping cart</h1>
+            <Row>
+              {cartItems.length === 0 ? (
+                <Alert variant="dark">
+                  Cart is empty{" "}
+                  <Alert.Link href="/">Go for shopping</Alert.Link>
+                </Alert>
+              ) : (
+                cartItems.map((product) => (
+                  <Col key={product.p_id} md={8}>
+                    <ListGroup>
+                      <ListGroup.Item key={product.p_id}>
+                        <Row className="align-items-center">
+                          <Col md={3}>
+                            <img
+                              className="img-large img-fluid rounded img-thumbnail"
+                              src={`/upload/${product.p_image}`}
+                              alt={product.p_name}
+                            ></img>
+                          </Col>
+                          <Col md={2}>${product.p_price}</Col>
+                          <Col md={4}>{product.p_name}</Col>
+                          <Col md={3}>
+                            <Button
+                              variant="light"
+                              onClick={() => handleClick(product.cart_id)}
+                            >
+                              <i className="fas fa-trash"></i>
+                            </Button>
+                          </Col>
+                        </Row>
+                      </ListGroup.Item>
+                    </ListGroup>
+                  </Col>
+                ))
+              )}
+              <Col md={4}>
+                <Card>
+                  <Card.Body>
+                    <ListGroup variant="flush">
+                      <ListGroup.Item>
+                        <h3>
+                          <h3>Subtotal {cartItems.length} items:</h3>
+                          {cartItems.map((data) => {
+                            price += parseInt(data.p_price, 10);
+                          })}
+                          TotalPrice__${price}
+                        </h3>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <div className="d-grid">
+                          <Button
+                            type="button"
+                            variant="warning"
+                            onClick={() => gotobuy()}
+                          >
+                            Buy
+                          </Button>
+                        </div>
+                      </ListGroup.Item>
+                    </ListGroup>
+                  </Card.Body>
+                </Card>
               </Col>
-            ))
-          )}
-        </Row>
-      </div>
-      </Container>
+            </Row>
+          </div>
+        </Container>
       </div>
       <Footer />
     </div>

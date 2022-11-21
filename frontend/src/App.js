@@ -17,6 +17,7 @@ import Cartscreen from "./pages/Cartscreen";
 import CLogin from "./pages/CLogin";
 import CRegister from "./pages/CRegister";
 import { AuthClientContext } from "./context/ClientauthContext";
+import Buy from "./utils/Buy";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -37,13 +38,13 @@ function App() {
             {/* Aniket  */}
             <Route path="/product/:p_id" element={currentClient ? <ProductScreen /> : <CLogin />} />
             <Route path="/Home" element={currentClient ? <HomeScreen /> : <CLogin />} />
-            <Route path="/" element={!currentClient ? <CLogin />:<HomeScreen />  } />
+            <Route path="/" element={!currentClient ? <CLogin /> : <HomeScreen />} />
             <Route path="/cregister" element={!currentClient ? <CRegister /> : <HomeScreen />} />
             <Route path="/mobile" element={currentClient ? <MobileScreen /> : <CLogin />} />
             <Route path="/laptop" element={currentClient ? <LaptopScreen /> : <CLogin />} />
             <Route path="/accessories" element={currentClient ? <AccessoriesScreen /> : <CLogin />} />
-            <Route path="/mycart" element={currentClient ? <Cartscreen /> : <CLogin />}
-            />
+            <Route path="/mycart" element={currentClient ? <Cartscreen /> : <CLogin />} />
+            <Route path="/buy" element={currentClient ? <Buy /> : <CLogin />} />
           </Routes>
           {/* <div className="d-flex flex-column">
           <Container>
