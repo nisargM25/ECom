@@ -16,22 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `vendor`
+-- Table structure for table `category`
 --
 
-DROP TABLE IF EXISTS `vendor`;
+DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `vendor` (
-  `v_id` int NOT NULL AUTO_INCREMENT,
-  `v_name` varchar(300) NOT NULL,
-  `v_contact` varchar(200) NOT NULL,
-  `v_address` varchar(200) NOT NULL,
-  `v_email` varchar(405) NOT NULL,
-  `v_pass` varchar(450) NOT NULL,
-  PRIMARY KEY (`v_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `category` (
+  `cat_id` int NOT NULL AUTO_INCREMENT,
+  `cat_name` varchar(50) NOT NULL,
+  PRIMARY KEY (`cat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `category`
+--
+
+LOCK TABLES `category` WRITE;
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,'Mobile'),(2,'Laptop'),(3,'Accessories');
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -42,4 +48,4 @@ CREATE TABLE `vendor` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-17 17:31:46
+-- Dump completed on 2022-11-21 11:08:57
