@@ -6,18 +6,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthContextProvider } from './context/authContext';
 import { AuthClientContextProvider } from './context/ClientauthContext';
-import { StoreProvider } from "./Store";
+// import { StoreProvider } from "./Store";
+import { Provider } from "react-redux";
+import store from './app/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <AuthContextProvider>
-    <AuthClientContextProvider>
-    <StoreProvider>
+    <AuthClientContextProvider> 
     <App />
-    </StoreProvider>
     </AuthClientContextProvider>
     </AuthContextProvider>
+    </Provider>
   </React.StrictMode>
 );
 

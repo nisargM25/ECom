@@ -90,7 +90,7 @@ function Cartscreen() {
                         <h3>
                           <h3>Subtotal {cartItems.length} items:</h3>
                           {cartItems.map((data) => {
-                            price += parseInt(data.p_price, 10);
+                           return price += parseInt(data.p_price, 10);
                           })}
                           TotalPrice__${price}
                         </h3>

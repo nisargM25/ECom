@@ -1,4 +1,4 @@
-
+import { addProduct } from '../app/features/vendorSlice';
 import axios from 'axios';
 import React, { useContext } from 'react'
 import { useState } from 'react'
